@@ -1,54 +1,30 @@
 import { useState } from 'react'
+import Welcome from "./welcome";
 
 const Login = () => {
-  const [name,setName] = useState('');
-  const [email,setEmail] = useState('');
-  const [chips, setChips] = useState(false);
-  const [request, setRequest] = useState('')
-  const [terms, setTerms] = useState(false)
-  const handleSubmit = () => alert(email);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const handleSubmit = () => alert(username);
 
   return(
+    <>
+    <Welcome title={"Login"} description={""}/>
+    <div className="w-full flex items-center justify-center">
     <form onSubmit={handleSubmit}>
-      <div>
-        Name:
-        <input type="email" value={name} onChange={(e) => setName(e.target.value)}/>
+      <div className="flex flex-col max-w-80 mb-2">
+        <label className="text-lg mb-1" htmlFor="">Username:</label>
+        <input className='border p-2 rounded-md border-black' type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
       </div>
-      <div>
-        Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <div className="flex flex-col max-w-80">
+        <label className="text-lg mb-1">Password:</label>
+        <input className='border border-black p-2 rounded-md' type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       </div>
-      <div>
-        With chips?
-        <select value={chips} onChange={(e) => setChips(e.target.value)} name="chips" id="chips">
-
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
-        </select>
-      </div>
-      <div>
-        Special requests:
-        <textarea value={request} onChange={(e) => setRequest(e.target.value)}/>
-      </div>
-      <div>
-        <input type="checkbox" value={terms} onChange={(e) => setTerms(e.target.value)}/>
-      </div>
-    <button type="submit">Submit</button>
+     
+    <button className="w-80 px-4 py-2 mt-4 text-white rounded-md bg-green-600"type="submit">Submit</button>
+    
 </form>
-    // <div>
-    //   <h1>Login</h1>
-    //   <div>
-    //     <div>
-    //       <label htmlFor="email">Email</label>
-    //       <input id="email" type="text" placeholder="Email"/>
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Password</label>
-    //       <input id="password" type="password" placeholder="Password"/>
-    //     </div>
-        
-    //   </div>
-    // </div>
+</div>
+</>
   )
 }
 
