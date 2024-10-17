@@ -5,7 +5,7 @@ const Welcome = ({
   description
 }) => {
   return(
-    <div className="h-[90vh] max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <div>
         <h1 className="text-7xl font-semibold my-11">{title}</h1>
         <p>{description}</p>
